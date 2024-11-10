@@ -59,8 +59,8 @@ function colocarMateriasNaTela(ano){
     button_submit.textContent = 'Enviar'
     button_submit.addEventListener("click", (event)=>{
         event.preventDefault()
-        // API_URL = 'https://otimizacao-quadro-api.onrender.com/quadro/?tempos_materia={' 
-        API_URL = 'http://127.0.0.1:8000/quadro/?tempos_materia={ '
+        API_URL = 'https://otimizacao-quadro-api.onrender.com/quadro/?tempos_materia={' 
+        // API_URL = 'http://127.0.0.1:8000/quadro/?tempos_materia={ '
 
         materiasPorAno[ano].forEach((materia, index)=>{
             API_URL +=`"${materia}": ${document.getElementById(`input_${materia}`).value}`
