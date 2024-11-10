@@ -57,7 +57,8 @@ class quadroHorarios:
             # Restrição de aulas de 1 a 6
             solver.Add(sum(aulas[(dia, materia, tempo)] for dia in dias) == 1)
         for dia in dias:
-            solver.Add(aulas[(dia, materia, 2)] <= aulas[(dia, materia, 1)])
+            if self.tempos_materia[materia] >= 2:
+                solver.Add(aulas[(dia, materia, 2)] <= aulas[(dia, materia, 1)])
             if self.tempos_materia[materia] >= 4:
                 solver.Add(aulas[(dia, materia, 4)] <= aulas[(dia, materia, 3)])
             

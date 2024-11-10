@@ -64,7 +64,6 @@ export function colocarMateriasNaTela(ano){
                 API_URL +=','
             }
         })
-        console.log(sum_tempos)
         API_URL+=`}&ano=${ano}&quantidade_quadros=3`
         if (sum_tempos<=30 && num_inteiros){
             getQuadroHorarios(API_URL)
