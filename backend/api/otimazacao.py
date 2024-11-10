@@ -60,13 +60,10 @@ class quadroHorarios:
             solver.Add(aulas[(dia, materia, 2)] <= aulas[(dia, materia, 1)])
             if self.tempos_materia[materia] >= 4:
                 solver.Add(aulas[(dia, materia, 4)] <= aulas[(dia, materia, 3)])
-            # if tempos_materia[materia] == 5:
-            #     solver.Add(aulas[(dia, materia, 5)] <= aulas[(dia, materia, 4)])
-
+            
             # Restrição de no máximo 4 aulas por dia
             solver.Add(sum(aulas[(dia, materia, tempo)] for tempo in range(1, self.tempos_materia[materia]+1)) <= 4)
     
-    # nquadros = resultado_quadro(solver, materias, aulas, tempos_materia, quantidade_quadros)
     return solver, aulas
 
   def resultado_quadro(self):

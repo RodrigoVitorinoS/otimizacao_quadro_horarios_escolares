@@ -18,7 +18,7 @@ app.add_middleware(
 
 @app.get('/')
 def hello():
-    return "Bem vindo a otimização de quadro de horários"
+    return "Bem vindo a otimização de quadro de horários v1.0" 
 
 @app.get('/quadro/')
 def quadro(tempos_materia: str, ano, quantidade_quadros):
