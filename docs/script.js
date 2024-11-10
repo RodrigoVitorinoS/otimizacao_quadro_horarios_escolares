@@ -57,22 +57,33 @@ function colocarMateriasNaTela(ano){
     button_submit.setAttribute('type', 'submit')
     button_submit.setAttribute('id', 'submit_tempos')
     button_submit.textContent = 'Enviar'
+    
     button_submit.addEventListener("click", (event)=>{
         event.preventDefault()
+        quadrosContainer.innerHTML = ''
         let API_URL = 'https://otimizacao-quadro-horarios-escolares.onrender.com/quadro/?tempos_materia={'
-        // API_URL = 'https://otimizacao-quadro-api.onrender.com/quadro/?tempos_materia={' 
-        // API_URL = 'http://127.0.0.1:8000/quadro/?tempos_materia={ '
-
+        let sum_tempos = 0
+        let num_inteiros = true
         materiasPorAno[ano].forEach((materia, index)=>{
+            sum_tempos += Number(document.getElementById(`input_${materia}`).value)
+            if(!/^\d+$/.test(document.getElementById(`input_${materia}`).value)){
+                num_inteiros = false
+            }
             API_URL +=`"${materia}": ${document.getElementById(`input_${materia}`).value}`
-            console.log(document.getElementById(`input_${materia}`).value)
             if (index < materiasPorAno[ano].length -1){
                 API_URL +=','
             }
         })
+        console.log(sum_tempos)
         API_URL+=`}&ano=${ano}&quantidade_quadros=3`
-
-        getQuadroHorarios(API_URL)
+        if (sum_tempos<=30 && num_inteiros){
+            getQuadroHorarios(API_URL)
+        }else if (sum_tempos>30){
+            alert("Quantidade de tempos inválida. A soma dos tempo não deve exceder 30")
+        } else {
+            alert("Os tempos devem ser números inteiros maiores que zero")
+        }
+        
     })
 
     form_tempos.appendChild(button_submit)
