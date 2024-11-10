@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles/reset.css">
+</head>
+<body class="body">
+    
+    <h1 class="titulo">Otimização de Quadro de Horários Escolar</h1>
+    <label for="ano" class="label-escolhas">Escolha um ano:</label>
+    <select id="ano" name="ano" class="dropdown-materias">
+        <option value="" disabled selected>Selecione o ano</option>
+        <option value="neja_3">NEJA 3</option>
+        <option value="neja_2">NEJA 2</option>
+        <option value="neja_1">NEJA 1</option>
+        <option value="terceiro">Terceiro Ano</option>
+        <option value="segundo">Segundo Ano</option>
+        <option value="primeiro">Primeiro Ano</option>
+        <option value="nono">Nono Ano</option>
+        <option value="oitavo">Oitavo Ano</option>
+        <option value="setimo">Sétimo Ano</option>
+        <option value="sexto">Sexto Ano</option>
+    </select>
+
+
+    <form id="form_tempos">
+        <div class="form_container"></div>
+    </form>
+
+    <div id="loading" style="display: none;">Carregando Quadros...</div>
+
+    <section class="quadros-container"></section>
+
+    
+
+
+
+
+
+    
+    <script src="script.js"></script>
+</body>
+</html>
