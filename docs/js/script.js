@@ -4,7 +4,6 @@ import { fazerQuadroHorarios } from "./quadrosDeHorarios.js";
 
 document.getElementById('ano').addEventListener('change', function() {
     const anoSelecionado = this.value;
-    console.log('Ano selecionado:', anoSelecionado);
     colocarMateriasNaTela(anoSelecionado)
     quadrosContainer.innerHTML = ''
 
@@ -16,7 +15,6 @@ export async function getQuadroHorarios(API_URL) {
     try{
         const fetchResponse = await fetch(API_URL);
         let quadros_lista = await fetchResponse.json();
-        console.log(quadros_lista)  
         fazerQuadroHorarios(quadros_lista)     
     }catch(error){
         console.error("Erro ao buscar os quadros:", error);
