@@ -70,7 +70,7 @@ export function colocarMateriasNaTela(ano){
         }else if (sum_tempos>30){
             alert("Quantidade de tempos inválida. A soma dos tempo não deve exceder 30")
         } else {
-            alert("Os tempos devem ser números inteiros maiores que zero")
+            alert("Os tempos devem ser números inteiros maiores ou iguais a zero")
         }
         
     })
