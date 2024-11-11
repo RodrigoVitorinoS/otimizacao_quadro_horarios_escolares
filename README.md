@@ -1,1 +1,1 @@
-#Modelo de quadro de horários
+#Modelo de quadro de horários escolares
