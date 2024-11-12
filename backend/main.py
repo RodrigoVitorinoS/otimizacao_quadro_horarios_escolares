@@ -1,8 +1,13 @@
 from fastapi import FastAPI
 from api.otimazacao import  quadroHorarios 
 import json
+
 from api.ano import pesos
 from fastapi.middleware.cors import CORSMiddleware
+from api.stats import tratamento, analize
+import pandas as pd
+from fastapi.responses import JSONResponse
+
 
 app = FastAPI()
 
@@ -37,6 +42,17 @@ def quadro(tempos_materia: str, ano, quantidade_quadros):
     nquadros = solver.resultado_quadro()    
 
     return nquadros
+
+@app.get('/stats/')
+def stats():
+    dados = pd.read_excel("data/FreqR.xlsx")
+    json_data = dados.to_json(orient='records')
+    df_from_json = pd.read_json(json_data)
+    
+    return json_data
+
+    # dados = tratamento(dados, "601-T")
+    # dados = analize(dados, "601-T")
 
 
 if __name__ == '__main__':
