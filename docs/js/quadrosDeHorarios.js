@@ -1,6 +1,7 @@
 export const quadrosContainer = document.querySelector(".quadros-container")
 
 export function fazerQuadroHorarios(quadros_lista){
+    console.log(quadros_lista)
     quadrosContainer.innerHTML = ''
     quadros_lista.forEach((quadro,sugestao)=>{
         

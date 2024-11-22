@@ -15,7 +15,12 @@ export async function getQuadroHorarios(API_URL) {
     try{
         const fetchResponse = await fetch(API_URL);
         let quadros_lista = await fetchResponse.json();
-        fazerQuadroHorarios(quadros_lista)     
+        if(quadros_lista === 'Modelo Sem soluções'){
+            alert('Vai se fuder comédia')
+        } else{
+            fazerQuadroHorarios(quadros_lista) 
+        }
+            
     }catch(error){
         console.error("Erro ao buscar os quadros:", error);
     }finally {

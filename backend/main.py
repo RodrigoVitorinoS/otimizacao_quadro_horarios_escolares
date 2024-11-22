@@ -4,9 +4,13 @@ import json
 
 from api.ano import pesos
 from fastapi.middleware.cors import CORSMiddleware
-from api.stats import tratamento, analize
+from api.stats import tratamento, analize,anova
 import pandas as pd
 from fastapi.responses import JSONResponse
+from io import StringIO
+from urllib.parse import unquote
+
+
 
 
 app = FastAPI()
@@ -44,15 +48,30 @@ def quadro(tempos_materia: str, ano, quantidade_quadros):
     return nquadros
 
 @app.get('/stats/')
-def stats():
-    dados = pd.read_excel("data/FreqR.xlsx")
-    json_data = dados.to_json(orient='records')
-    df_from_json = pd.read_json(json_data)
-    
-    return json_data
+async def stats(dados, grupos, valores):
+    # dados = pd.read_excel("data/FreqR.xlsx")
 
-    # dados = tratamento(dados, "601-T")
-    # dados = analize(dados, "601-T")
+    json_data = json.loads(dados)  # Converte a string para um objeto JSON
+    df = pd.DataFrame(json_data[1:], columns=json_data[0])
+    # print(df)
+    dados_tratados = tratamento(df, grupos, valores)
+    text =0
+    # text = anova(dados_tratados)
+    # print(text)
+    p_shapiro, p_bartlett, anova_resultados, foram_transformados, tukey_df= analize(dados_tratados, valores, grupos)
+    # print(p_shapiro, p_bartlett, anova_resultados, foram_transformados, tukey_df)
+    # json_data =dados.to_json(orient="columns")
+    # data_dict = json.loads(json_data)
+    # print(dados_tratados.info())
+    anova_resultados =anova_resultados.to_dict(orient='dict')
+    tukey_df =tukey_df.to_dict(orient='dict')
+    print(tukey_df)
+
+    volta = [p_shapiro, p_bartlett, foram_transformados, anova_resultados, tukey_df]
+
+    return JSONResponse(volta)
+
+
 
 
 if __name__ == '__main__':
