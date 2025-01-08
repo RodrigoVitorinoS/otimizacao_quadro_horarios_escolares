@@ -1,7 +1,7 @@
 # Otimização de Frequência Escolar com Quadro de Horários
 
 ## Descrição
-Este projeto é uma solução computacional baseada em análise estatística e otimização matemática, desenvolvida para auxiliar gestores escolares na melhoria da frequência estudantil. A ferramenta utiliza a linguagem Python para automação das análises e aplicação de modelos de otimização, e conta com uma interface web criada com HTML, CSS e JavaScript para facilitar o uso por não-especialistas.
+Este projeto é uma solução computacional baseada em análise estatística e otimização matemática, desenvolvida para auxiliar gestores escolares na melhoria da frequência estudantil. A ferramenta utiliza a linguagem Python para automação das análises e aplicação de modelos de otimização, e conta com uma interface web criada com HTML, CSS e JavaScript para facilitar o uso por não-especialistas. A interface web pode ser acessada no link 
 
 ## Funcionalidades
 
@@ -22,9 +22,7 @@ Este projeto é uma solução computacional baseada em análise estatística e o
 - **Backend:** Python (bibliotecas: Pandas, SciPy, Statsmodels, Pyomo, OrTools).
 - **Frontend:** HTML, CSS, JavaScript.
 
-## Como Utilizar
 
-## Licença
 
 ## Autor
 - **Rodrigo Vitorino**
