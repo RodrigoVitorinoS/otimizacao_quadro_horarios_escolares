@@ -29,5 +29,4 @@ Este projeto é uma solução computacional baseada em análise estatística e o
 ## Autor
 - **Rodrigo Vitorino**
 - Contato: [rodrigo.vitorino.contato@gmail.com](mailto:rodrigo.vitorino.contato@gmail.com)
-- LinkedIn: [www.linkedin.com/in/rodrigo-vitorino-santos](www.linkedin.com/in/rodrigo-vitorino-santos)
 
